@@ -40,6 +40,12 @@ public class JobController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(Model model, @Valid JobForm jobForm, Errors errors) {
 
+        if(errors.hasErrors()) {
+            model.addAttribute("jobForm", jobForm);
+            return "new-job";}
+
+//        Job newJob = Job(jobForm.getName(), jobForm.getEmployer(), jobForm.getLocation(),
+//                jobForm.getPositionType(), jobForm.getCoreCompetency())
         // TODO #6 - Validate the JobForm model, and if valid, create a
         // new Job and add it to the jobData data store. Then
         // redirect to the job detail view for the new Job.
