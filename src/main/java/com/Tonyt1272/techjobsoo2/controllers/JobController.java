@@ -1,5 +1,6 @@
 package com.Tonyt1272.techjobsoo2.controllers;
 
+import com.Tonyt1272.techjobsoo2.models.*;
 import com.Tonyt1272.techjobsoo2.models.data.JobData;
 import com.Tonyt1272.techjobsoo2.models.forms.JobForm;
 import org.springframework.stereotype.Controller;
@@ -43,15 +44,22 @@ public class JobController {
         if(errors.hasErrors()) {
             model.addAttribute("jobForm", jobForm);
             return "new-job";}
+        String name = jobForm.getName();
+        Employer employer = jobData.getEmployers().findById(jobForm.getEmployerId());
+        Location location = jobData.getLocations().findById(jobForm.getLocation());
+        PositionType positionType = jobData.getPositionTypes().findById(jobForm.getPositionType());
+        CoreCompetency coreCompetency = jobData.getCoreCompetencies().findById(jobForm.getCoreCompetency());
+            Job newJob = new Job();
+            newJob.setName(name);
+            newJob.setEmployer(employer);
+            newJob.setLocation(location);
+            newJob.setPositionType(positionType);
+            newJob.setCoreCompetency(coreCompetency);
+            int id=newJob.getId();
+            jobData.add(newJob);
 
-
-//        Job newJob = Job(jobForm.getName(), jobForm.getEmployer(), jobForm.getLocation(),
-//                jobForm.getPositionType(), jobForm.getCoreCompetency())
         // TODO #6 - Validate the JobForm model, and if valid, create a
-        // new Job and add it to the jobData data store. Then
-        // redirect to the job detail view for the new Job.
-        //model.addAttribute("job",jobData.findById(17));
-        int id=17;
+
         String newJobPath = "/job/?id="+id;
         return "redirect:"+ newJobPath;
         //return "";
