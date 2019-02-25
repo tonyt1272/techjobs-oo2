@@ -49,6 +49,10 @@ public class JobController {
         Location location = jobData.getLocations().findById(jobForm.getLocation());
         PositionType positionType = jobData.getPositionTypes().findById(jobForm.getPositionType());
         CoreCompetency coreCompetency = jobData.getCoreCompetencies().findById(jobForm.getCoreCompetency());
+
+//        Job newJob = Job(name, employer, location,
+//                positionType, coreCompetency);          /*not sure why this constructor doesn't work*/
+
             Job newJob = new Job();
             newJob.setName(name);
             newJob.setEmployer(employer);
