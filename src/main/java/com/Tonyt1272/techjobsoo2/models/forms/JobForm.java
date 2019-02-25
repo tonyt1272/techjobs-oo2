@@ -24,55 +24,55 @@ public class JobForm {
     private int employerId;
 
     @NotNull
-    @Size(min=1, message = "Employer may not be empty")
-    private String employer;
+    //@Size(min=1, message = "Employer may not be empty")
+    private int employer;
 
     @NotNull
-    @Size(min=1, message = "Location may not be empty")
-    private String location;
+    //@Size(min=1, message = "Location may not be empty")
+    private int location;
 
     @NotNull
-    @Size(min=1, message = "Position Type may not be empty")
-    private String positionType;
+    //@Size(min=1, message = "Position Type may not be empty")
+    private int positionType;
 
     @NotNull
-    @Size(min=1, message = "Core Competency may not be empty")
-    private String coreCompetency;
+   // @Size(min=1, message = "Core Competency may not be empty")
+    private int coreCompetency;
     /*
         TODO #3 - Included other fields needed to create a job,
         with correct validation attributes and display names.
         Don't forget to add getters and setters
      */
 
-    public String getEmployer() {
+    public int getEmployer() {
         return employer;
     }
 
-    public void setEmployer(String employer) {
+    public void setEmployer(int employer) {
         this.employer = employer;
     }
 
-    public String getLocation() {
+    public int getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(int location) {
         this.location = location;
     }
 
-    public String getPositionType() {
+    public int getPositionType() {
         return positionType;
     }
 
-    public void setPositionType(String positionType) {
+    public void setPositionType(int positionType) {
         this.positionType = positionType;
     }
 
-    public String getCoreCompetency() {
+    public int getCoreCompetency() {
         return coreCompetency;
     }
 
-    public void setCoreCompetency(String coreCompetency) {
+    public void setCoreCompetency(int coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
 

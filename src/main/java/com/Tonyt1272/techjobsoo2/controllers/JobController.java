@@ -44,13 +44,17 @@ public class JobController {
             model.addAttribute("jobForm", jobForm);
             return "new-job";}
 
+
 //        Job newJob = Job(jobForm.getName(), jobForm.getEmployer(), jobForm.getLocation(),
 //                jobForm.getPositionType(), jobForm.getCoreCompetency())
         // TODO #6 - Validate the JobForm model, and if valid, create a
         // new Job and add it to the jobData data store. Then
         // redirect to the job detail view for the new Job.
-
-        return "";
+        //model.addAttribute("job",jobData.findById(17));
+        int id=17;
+        String newJobPath = "/job/?id="+id;
+        return "redirect:"+ newJobPath;
+        //return "";
 
     }
 }
